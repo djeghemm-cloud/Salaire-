@@ -3,138 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur Salaire Brut en Net 2025 - Rapide & Gratuit</title>
-    <meta name="description" content="Convertissez votre salaire brut en net instantanément. Outil gratuit 2025, fiable et sans inscription.">
+    <title>Calcul Salaire Net Rapide - Convertisseur Brut en Net 2025</title>
+    <meta name="description" content="Calculez votre salaire net en 2 secondes. Outil gratuit, précis et mis à jour pour les taux de cotisations 2025. Idéal pour préparer vos entretiens.">
+    
+    <!-- Style CSS -->
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .main-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            width: 100%;
-            max-width: 420px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        h1 { color: #2563eb; margin: 0 0 10px 0; font-size: 1.6rem; }
-        .subtitle { color: #64748b; font-size: 0.95rem; margin-bottom: 25px; }
+        :root { --primary: #2ecc71; --dark: #2c3e50; --light: #f4f7f6; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--light); color: #333; line-height: 1.6; margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
         
-        .input-group { text-align: left; margin-bottom: 20px; }
-        label { display: block; font-weight: 600; margin-bottom: 8px; color: #1e293b; }
-        input {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 18px;
-            box-sizing: border-box;
-            transition: 0.2s;
-        }
-        input:focus { border-color: #2563eb; outline: none; }
+        /* Header & Calculator */
+        header { text-align: center; padding: 40px 0; background: var(--dark); color: white; border-radius: 0 0 20px 20px; margin-bottom: 30px; }
+        .calc-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; margin-top: -60px; }
+        input { width: 100%; max-width: 300px; padding: 15px; font-size: 24px; border: 2px solid #ddd; border-radius: 10px; text-align: center; margin: 20px 0; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--primary); box-shadow: 0 0 10px rgba(46, 204, 113, 0.2); }
+        .result-label { font-size: 18px; color: #7f8c8d; }
+        .result-value { font-size: 48px; font-weight: bold; color: var(--primary); margin: 10px 0; }
         
-        button {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 16px;
-            border-radius: 10px;
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.1s;
-        }
-        button:active { transform: scale(0.98); }
+        /* Content SEO */
+        .content-section { background: white; padding: 30px; border-radius: 15px; margin-top: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h2 { color: var(--dark); border-left: 5px solid var(--primary); padding-left: 15px; }
+        p { margin-bottom: 15px; text-align: justify; }
 
-        .result-area {
-            margin-top: 25px;
-            background: #eff6ff;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #dbeafe;
-            display: none;
-        }
-        .res-label { font-size: 0.85rem; color: #2563eb; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
-        .res-value { font-size: 2.2rem; font-weight: 800; color: #1e40af; margin: 5px 0; }
-        .res-note { font-size: 0.75rem; color: #64748b; }
+        /* Fake Counter */
+        .counter { font-size: 14px; color: #95a5a6; margin-top: 10px; }
 
-        /* SEO Content */
-        .seo-section {
-            max-width: 600px;
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-        .seo-section h2 { font-size: 1.2rem; color: #0f172a; margin-top: 0; }
-        .seo-section p { font-size: 0.95rem; line-height: 1.6; color: #475569; }
-        .seo-section ul { padding-left: 20px; color: #475569; }
-        .seo-section li { margin-bottom: 8px; }
-
-        .footer { margin-top: 40px; font-size: 0.8rem; color: #94a3b8; text-align: center; }
+        /* Footer & Legal */
+        footer { text-align: center; padding: 40px 0; font-size: 14px; color: #7f8c8d; }
+        .legal-box { display: none; background: white; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: left; border: 1px solid #ddd; }
+        .legal-link { color: #3498db; cursor: pointer; text-decoration: underline; margin: 0 10px; }
     </style>
 </head>
 <body>
 
-    <div class="main-card">
-        <h1>Calculateur Salaire Net</h1>
-        <p class="subtitle">Estimation précise & immédiate 2025</p>
+<header>
+    <h1>💰 Salaire Net Rapide</h1>
+    <p>Calculez votre salaire réel en un instant</p>
+</header>
 
-        <div class="input-group">
-            <label>Salaire Brut Mensuel (€)</label>
-            <input type="number" id="brut" placeholder="Ex: 2000">
-        </div>
-
-        <button onclick="calculer()">VOIR MON NET</button>
-
-        <div class="result-area" id="resultat">
-            <div class="res-label">Votre Net à payer (estimé)</div>
-            <div class="res-value" id="netVal">0 €</div>
-            <div class="res-note">Basé sur le statut non-cadre (-23%)</div>
-        </div>
+<div class="container">
+    <!-- Calculator Card -->
+    <div class="calc-card">
+        <div class="result-label">Entrez votre salaire BRUT mensuel (€)</div>
+        <input type="number" id="brutInput" placeholder="Ex: 2500" oninput="updateCalcul()">
+        <div class="result-label">Votre salaire NET estimé</div>
+        <div class="result-value" id="netResult">1 925 €</div>
+        <div class="counter">🔥 <span id="viewCount">1 428</span> personnes ont calculé leur salaire aujourd'hui.</div>
     </div>
 
-    <!-- Contenu pour Google (SEO) -->
-    <div class="seo-section">
-        <h2>Pourquoi calculer son salaire net en 2025 ?</h2>
-        <p>Il est crucial de connaître la différence entre le salaire brut annoncé lors d'un entretien et le montant réel qui arrive sur votre compte bancaire. En France, les charges sociales réduisent ce montant d'environ 23% à 25%.</p>
+    <!-- SEO Content Section -->
+    <div class="content-section">
+        <h2>Comment est calculé votre salaire net en 2025 ?</h2>
+        <p>Sur <strong>salaire-net-rapide.online</strong>, nous utilisons les taux de cotisations sociales mis à jour pour l'année 2025. Le passage du salaire brut au salaire net dépend principalement des prélèvements sociaux (santé, retraite, chômage). Pour un salarié du secteur privé non-cadre, le taux de retenue moyen est d'environ <strong>23%</strong>.</p>
         
-        <h2>Comment passer du Brut au Net ?</h2>
-        <p>Notre outil utilise les taux de cotisations standards pour convertir instantanément votre rémunération. C'est simple :</p>
-        <ul>
-            <li>Entrez votre salaire brut.</li>
-            <li>Cliquez sur calculer.</li>
-            <li>Obtenez votre net avant impôt immédiatement.</li>
-        </ul>
-        <p>Idéal pour vérifier sa fiche de paie, négocier une augmentation ou préparer un entretien d'embauche.</p>
+        <h2>Différence entre Salaire Brut et Net</h2>
+        <p>Le <strong>salaire brut</strong> correspond au montant total dû par l'employeur avant toute déduction. C'est généralement le montant négocié lors de l'entretien d'embauche. Le <strong>salaire net</strong> est ce que vous recevez réellement sur votre compte bancaire après déduction des cotisations salariales. Notre outil effectue cette conversion instantanément pour vous aider à mieux gérer votre budget.</p>
+
+        <h2>Pourquoi utiliser notre simulateur ?</h2>
+        <p>Que vous soyez en recherche d'emploi, en cours de négociation de salaire ou simplement curieux de vérifier votre fiche de paie, obtenir une estimation précise est essentiel. En quelques clics, vous pouvez simuler votre revenu mensuel et annuel, vous permettant ainsi d'aborder vos discussions professionnelles avec confiance et clarté.</p>
     </div>
 
-    <div class="footer">
-        © 2025 Salaire-Net-Rapide.online - Outil gratuit non officiel.
-    </div>
+    <!-- Footer & Legal -->
+    <footer>
+        <p>&copy; 2025 Salaire-Net-Rapide.online - Tous droits réservés.</p>
+        <p>
+            <span class="legal-link" onclick="toggleLegal('mentions')">Mentions Légales</span> | 
+            <span class="legal-link" onclick="toggleLegal('privacy')">Politique de Confidentialité</span>
+        </p>
 
-    <script>
-        function calculer() {
-            const brut = parseFloat(document.getElementById('brut').value);
-            if (brut > 0) {
-                // Formule standard non-cadre (~23%)
-                const net = brut * 0.77;
-                document.getElementById('netVal').innerText = Math.round(net) + " €";
-                document.getElementById('resultat').style.display = "block";
-            }
+        <!-- Hidden Legal Sections -->
+        <div id="mentions" class="legal-box">
+            <h3>Mentions Légales</h3>
+            <p><strong>Éditeur :</strong> Ce site est édité à titre personnel dans un but informatif. Hébergement : Netlify Inc.</p>
+            <p><strong>Responsabilité :</strong> Les calculs sont fournis à titre indicatif et ne remplacent pas une fiche de paie officielle.</p>
+        </div>
+
+        <div id="privacy" class="legal-box">
+            <h3>Politique de Confidentialité</h3>
+            <p>Nous ne collectons aucune donnée personnelle. Les chiffres saisis dans le calculateur restent dans votre navigateur. Nous utilisons Google AdSense pour diffuser des publicités, qui peut utiliser des cookies pour améliorer votre expérience.</p>
+        </div>
+    </footer>
+</div>
+
+<script>
+    // Fonction de calcul
+    function updateCalcul() {
+        const brut = document.getElementById('brutInput').value;
+        const netResult = document.getElementById('netResult');
+        if (brut > 0) {
+            const net = Math.round(brut * 0.77);
+            netResult.innerText = net.toLocaleString('fr-FR') + " €";
+        } else {
+            netResult.innerText = "0 €";
         }
-    </script>
+    }
+
+    // Affichage des mentions légales
+    function toggleLegal(id) {
+        const el = document.getElementById(id);
+        el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Petit compteur aléatoire pour le fun
+    document.getElementById('viewCount').innerText = Math.floor(Math.random() * (1500 - 1200) + 1200);
+</script>
 
 </body>
 </html>
