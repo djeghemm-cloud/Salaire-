@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculateur Salaire Non-Cadre Net 2025 - Brut en Net</title>
+    <meta name="description" content="Simulateur salaire net pour non-cadres (cotisations 22%). Gratuit.">
+</head>
+<body>
+    <div class="container">
+        <h1>👷 Calculateur Non-Cadres</h1>
+        <p>Brut → Net Non-Cadre (22% cotisations)</p>
+        <input type="number" id="brut" placeholder="2500" oninput="calculer()">
+        <div class="result" id="net">1950 €</div>
+        <div class="nav">
+            <a href="index.html">← Accueil</a>
+        </div>
+    </div>
+
+    <style>
+        /* Même style - Copie depuis cadre.html ou index.html */
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h1 { color: #e67e22; }
+        input { padding: 15px; font-size: 24px; width: 80%; max-width: 300px; margin: 20px 0; border: 2px solid #ddd; border-radius: 10px; text-align: center; }
+        .result { font-size: 40px; font-weight: bold; color: #e67e22; }
+        .nav a { display: block; margin: 10px 0; color: #3498db; text-decoration: none; }
+    </style>
+
+    <script>
+        function calculer() {
+            let brut = parseFloat(document.getElementById('brut').value) || 0;
+            document.getElementById('net').innerText = Math.round(brut * 0.78) + ' €';
+        }
+    </script>
+</body>
+</html>
