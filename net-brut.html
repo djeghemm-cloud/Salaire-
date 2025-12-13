@@ -1,23 +1,131 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Net en Brut 2025 - Simulateur Gratuit</title>
-    <meta name="description" content="Convertir salaire net en brut pour négocier.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Net en Brut 2025 - Convertisseur Gratuit</title>
+  <meta name="description" content="Convertissez votre salaire net en brut en 2 secondes. Outil gratuit mis à jour pour 2025." />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #7f8c8d;
+      margin-bottom: 30px;
+    }
+    .calc-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    label {
+      font-size: 18px;
+      color: #555;
+      display: block;
+      margin-bottom: 15px;
+    }
+    input[type="number"] {
+      width: 100%;
+      max-width: 300px;
+      padding: 20px;
+      font-size: 28px;
+      border: 3px solid #ddd;
+      border-radius: 15px;
+      text-align: center;
+      outline: none;
+      transition: 0.3s;
+    }
+    input:focus { border-color: #667eea; }
+    .result-label { margin-top: 20px; font-size: 16px; color: #888; }
+    .result {
+      font-size: 52px;
+      font-weight: bold;
+      color: #27ae60;
+      margin: 10px 0;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .nav-links a {
+      background: #667eea;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .nav-links a:hover { background: #764ba2; transform: translateY(-2px); }
+    .note {
+      margin-top: 20px;
+      color: #555;
+      line-height: 1.7;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 16px;
+      border-radius: 12px;
+    }
+    .note strong { color: #9a3412; }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Net → Brut</h1>
-        <input type="number" id="net" placeholder="1925" oninput="calculer()">
-        <div class="result" id="brut">2500 €</div>
-        <a href="index.html">← Accueil</a>
+  <div class="container">
+    <h1>🔄 Convertisseur Net → Brut</h1>
+    <p class="subtitle">Estimation rapide 2025 (base 23% de charges)</p>
+
+    <div class="calc-box">
+      <label>Entrez votre salaire NET mensuel (€)</label>
+      <input type="number" id="net" placeholder="1925" oninput="calculer()" />
+      <p class="result-label">Votre salaire BRUT estimé :</p>
+      <div class="result" id="brut">2 500 €</div>
     </div>
-    <style> /* Même style */ </style>
-    <script>
-        function calculer() {
-            let net = parseFloat(document.getElementById('net').value) || 0;
-            document.getElementById('brut').innerText = Math.round(net / 0.77) + ' €';
-        }
-    </script>
+
+    <div class="note">
+      <p><strong>Info :</strong> Ce calcul est une estimation (non-cadre privé). Pour un cadre, les charges peuvent être plus élevées.</p>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">🏠 Accueil</a>
+      <a href="cadre.html">👔 Cadres</a>
+      <a href="non-cadre.html">👷 Non-cadres</a>
+      <a href="faq.html">📋 FAQ</a>
+    </div>
+  </div>
+
+  <script>
+    function calculer() {
+      const net = parseFloat(document.getElementById('net').value) || 0;
+      const brut = net / 0.77;
+      document.getElementById('brut').innerText = Math.round(brut).toLocaleString('fr-FR') + ' €';
+    }
+    calculer();
+  </script>
 </body>
 </html>
