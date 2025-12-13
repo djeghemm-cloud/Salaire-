@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Net en Brut 2025 - Simulateur Gratuit</title>
+    <meta name="description" content="Convertir salaire net en brut pour négocier.">
+</head>
+<body>
+    <div class="container">
+        <h1>Net → Brut</h1>
+        <input type="number" id="net" placeholder="1925" oninput="calculer()">
+        <div class="result" id="brut">2500 €</div>
+        <a href="index.html">← Accueil</a>
+    </div>
+    <style> /* Même style */ </style>
+    <script>
+        function calculer() {
+            let net = parseFloat(document.getElementById('net').value) || 0;
+            document.getElementById('brut').innerText = Math.round(net / 0.77) + ' €';
+        }
+    </script>
+</body>
+</html>
