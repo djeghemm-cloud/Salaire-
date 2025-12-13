@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul Salaire Net CADRE 2025 - Simulateur Gratuit</title>
+    <meta name="description" content="Simulateur spécial Cadres. Calculez votre salaire net avec les cotisations spécifiques (25%). Outil gratuit et immédiat.">
+    <style>
+        :root { --primary: #8e44ad; --dark: #2c3e50; --light: #f4f7f6; } /* Violet pour les cadres */
+        body { font-family: 'Segoe UI', sans-serif; background: var(--light); color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h1 { color: var(--primary); }
+        input { padding: 15px; font-size: 24px; width: 80%; max-width: 300px; margin: 20px 0; border: 2px solid #ddd; border-radius: 10px; text-align: center; }
+        .result { font-size: 40px; font-weight: bold; color: var(--primary); }
+        .back-link { display: block; margin-top: 30px; color: #7f8c8d; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>👔 Simulateur Salaire CADRE</h1>
+        <p>Les cadres cotisent plus (environ 25%). Calculez votre net réel ici.</p>
+        
+        <div>
+            <label>Salaire BRUT Mensuel (€)</label><br>
+            <input type="number" id="brut" placeholder="Ex: 4000" oninput="calculer()">
+        </div>
+
+        <div>
+            <p>Votre Net CADRE estimé :</p>
+            <div class="result" id="net">3 000 €</div>
+        </div>
+
+        <a href="index.html" class="back-link">← Retour au simulateur classique</a>
+    </div>
+
+    <script>
+        function calculer() {
+            let brut = document.getElementById('brut').value;
+            // Calcul Cadre (x 0.75)
+            let net = brut * 0.75; 
+            document.getElementById('net').innerText = Math.round(net).toLocaleString('fr-FR') + " €";
+        }
+    </script>
+</body>
+</html>
