@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Brut en Net 2025 - Calculateur Gratuit</title>
+    <meta name="description" content="Convertir salaire brut en net. Outil gratuit 2025.">
+</head>
+<body>
+    <div class="container">
+        <h1>Brut → Net</h1>
+        <input type="number" id="brut" placeholder="2500" oninput="calculer()">
+        <div class="result" id="net">1925 €</div>
+        <a href="index.html">← Accueil</a>
+    </div>
+    <style> /* Même style */ </style>
+    <script>
+        function calculer() {
+            let brut = parseFloat(document.getElementById('brut').value) || 0;
+            document.getElementById('net').innerText = Math.round(brut * 0.77) + ' €';
+        }
+    </script>
+</body>
+</html>
